@@ -54,9 +54,13 @@ class _HomePageState extends State<HomePage> {
     var params = {
       "answer": ans
     };
-    _isLoading = true;
+    setState(() {
+      _isLoading = true;
+    });
     var res = await apiClient.callApi(HttpMethod.post, "/api/polls/$pollId", params);
-    _isLoading = false;
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
