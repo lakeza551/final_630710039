@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "22f59446-f6a4-49ad-ade7-70d0af4025e9",
+		"name": "Final Exam 2/2565",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "832975"
+	},
+	"item": [
+		{
+			"name": "Get Polls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/api/polls",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"polls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Poll Results",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/api/polls/1/results",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"polls",
+						"1",
+						"results"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote Poll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answer\": \"พล.ต.อ.เสรีพิศุทธ์ เตมียเวส\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/api/polls/1",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"polls",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

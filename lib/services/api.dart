@@ -19,17 +19,18 @@ extension ParseToString on HttpMethod {
 
 class ApiClient {
   // todo: กำหนด base URL ให้เหมาะสม !!!
-  static const apiBaseUrl = 'xxxxxxxxxxxxxxxxxxx';
+  static const apiBaseUrl = 'https://cpsu-test-api.herokuapp.com';
 
   // todo: สร้างเมธอดสำหรับ request ไปยัง API โดยเรียกใช้เมธอด _makeRequest() ที่อาจารย์เตรียมไว้ให้ด้านล่างนี้
   // ดูตัวอย่างได้จากเมธอด getAllStudents(), getStudentById(), etc. ในโปรเจ็ค class_attendance
   // https://github.com/3bugs/cpsu_class_attendance_frontend/blob/master/lib/services/api.dart
+  Future<ResponseBody> callApi(HttpMethod method ,String path, [Map<String, dynamic>? params]) {
+    return _makeRequest(method, path, params);
+  }
 
   Future<ResponseBody> _makeRequest(
     HttpMethod httpMethod,
-    String path, [
-    Map<String, dynamic>? params,
-  ]) async {
+    String path, [Map<String, dynamic>? params]) async {
     final headers = {
       'Content-type': 'application/json',
       'Accept': 'application/json',
@@ -55,7 +56,7 @@ class ApiClient {
         // POST method
         case HttpMethod.post:
           uri = Uri.parse('$apiBaseUrl$path');
-
+          print(json.encode(params));
           response = await http.post(
             uri,
             headers: headers,
