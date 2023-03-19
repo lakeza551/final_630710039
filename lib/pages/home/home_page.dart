@@ -102,14 +102,8 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.only(bottom: 20),
                       child: TextButton(
                         onPressed: () async {
-                          setState(() {
-                            _isLoading = true;
-                          });
                           await _vote(_polls![index].id, c);
                           if(!context.mounted) return;
-                          setState(() {
-                            _isLoading = false;
-                          });
                           showOkDialog(context, "SUCCESS", "โหวตตัวเลือก '$c' ของโพลคำถามช้อ ${_polls![index].id} สำเร็จ");
                         },
                         style: ButtonStyle(
